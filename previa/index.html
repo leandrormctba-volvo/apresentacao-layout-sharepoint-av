@@ -22,19 +22,19 @@
 
   /* ---------- fundo com a foto do Centro de Eventos ---------- */
   .pagina { position:relative; min-height:calc(100vh - 128px); overflow:hidden; }
-  .foto { position:absolute; inset:0; background:url('centro-de-eventos.jpg') center 55%/cover no-repeat; }
+  .foto { position:absolute; inset:0; background:url('centro-de-eventos.jpg') center 72%/cover no-repeat; }
   .pagina.home .foto { transform:scale(1.08); animation:aproxima 16s ease-out forwards; }
   @keyframes aproxima { to { transform:scale(1); } }
   .veu { position:absolute; inset:0; background:
-      linear-gradient(90deg, rgba(5,10,12,.90) 0%, rgba(5,10,12,.66) 45%, rgba(5,10,12,.48) 100%),
-      linear-gradient(0deg, rgba(5,10,12,.85) 0%, transparent 45%); }
+      linear-gradient(90deg, rgba(5,10,12,.35) 0%, rgba(5,10,12,.15) 50%, rgba(5,10,12,.30) 100%),
+      linear-gradient(0deg, rgba(5,10,12,.92) 0%, rgba(5,10,12,.55) 32%, transparent 62%); }
   .pagina.interna .veu { background:linear-gradient(180deg, rgba(5,10,12,.78) 0%, rgba(5,10,12,.93) 260px, rgba(11,13,15,1) 520px); }
   .pagina.interna .foto { height:520px; }
 
   /* ---------- HOME ---------- */
   .home-conteudo { position:relative; max-width:1440px; margin:0 auto; padding:56px 40px; min-height:calc(100vh - 128px);
     display:grid; grid-template-columns:minmax(300px,.9fr) 2fr; gap:48px; align-items:center; }
-  .marca { grid-column:1; }
+  .marca { grid-column:1; align-self:end; padding-bottom:10px; }
   .marca .nome { font-family:"Montserrat"; font-weight:900; line-height:.95; font-size:clamp(46px,5.6vw,84px); letter-spacing:-1px; }
   .marca .nome span { display:block; }
   .filete { width:90px; height:6px; border-radius:6px; margin:22px 0 18px; background:linear-gradient(90deg,#063a45 0%,#0c5868 30%,#14788c 65%,#3fa7bd 100%); }
