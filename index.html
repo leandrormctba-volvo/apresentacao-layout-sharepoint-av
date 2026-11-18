@@ -20,8 +20,8 @@
   h1, h2, h3, .mont { font-family:"Montserrat",system-ui,sans-serif; }
 
   /* ---------- palco 16:9 que escala na tela ---------- */
-  .palco { position:fixed; inset:0; display:grid; place-items:center; }
-  .deck { position:relative; width:1920px; height:1080px; transform-origin:center; flex:none; }
+  .palco { position:fixed; inset:0; overflow:hidden; }
+  .deck { position:absolute; left:50%; top:50%; width:1920px; height:1080px; transform-origin:center; transform:translate(-50%,-50%); }
   .slide { position:absolute; inset:0; padding:110px 128px 130px; display:flex; flex-direction:column; gap:26px;
     background:var(--bg); opacity:0; visibility:hidden; transition:opacity .6s ease, visibility .6s; overflow:hidden; }
   .slide.alt { background:var(--bg2); }
@@ -357,10 +357,11 @@ addEventListener('touchend', e => { if (x0 === null) return; const dx = e.change
 
 // ---------- escala do palco 1920x1080 ----------
 const deck = document.getElementById('deck');
-function escala() { const s = Math.min(innerWidth / 1920, innerHeight / 1080); deck.style.transform = `scale(${s})`; }
+function escala() { const s = Math.min(innerWidth / 1920, innerHeight / 1080); deck.style.transform = `translate(-50%,-50%) scale(${s})`; }
 addEventListener('resize', escala); escala();
 
 ir(Math.max(0, (parseInt(location.hash.slice(1), 10) || 1) - 1));
+addEventListener('hashchange', () => { const n = (parseInt(location.hash.slice(1), 10) || 1) - 1; if (n !== atual) ir(n); });
 </script>
 </body>
 </html>
