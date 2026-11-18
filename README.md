@@ -7,6 +7,8 @@ Apresentação animada (9 slides) da proposta de novo layout do SharePoint da As
 ## Como apresentar
 - **Computador:** setas ← → do teclado (ou os botões embaixo). `Home` volta ao início.
 - **Celular:** deslize o dedo para o lado.
+- **No celular** os slides viram uma coluna com rolagem, e os botões e textos se ajustam à tela.
+- **Baixar em PDF:** botão redondo com a seta, no canto inferior direito. Gera um PDF com os 9 slides em paisagem.
 - Para abrir num slide específico, use `#número` no fim do link (ex.: `…/#5`).
 
 ## Conteúdo

@@ -137,7 +137,93 @@
   .pontos { display:flex; gap:8px; }
   .pontos i { width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,.25); cursor:pointer; transition:all .3s; }
   .pontos i.on { width:30px; border-radius:6px; background:var(--teal-claro); }
-  .contador { position:fixed; right:22px; bottom:28px; font:600 15px "Inter"; color:var(--soft); z-index:10; }
+  .contador { position:fixed; left:22px; bottom:30px; font:600 15px "Inter"; color:var(--soft); z-index:10; }
+
+  /* ---------- botão PDF (só ícone) ---------- */
+  .btn-pdf { position:fixed; right:18px; bottom:16px; z-index:11; width:50px; height:50px; border-radius:50%; border:1px solid rgba(255,255,255,.2);
+    background:linear-gradient(180deg,#1b93ab,#0c5868); box-shadow:0 4px 0 #063a45, 0 10px 18px rgba(0,0,0,.5); cursor:pointer; display:grid; place-items:center; transition:transform .15s, filter .2s; }
+  .btn-pdf:hover { filter:brightness(1.12); transform:translateY(-2px); }
+  .btn-pdf:active { transform:translateY(3px); box-shadow:0 1px 0 #063a45, 0 4px 8px rgba(0,0,0,.5); }
+  .btn-pdf svg { width:24px; height:24px; fill:none; stroke:#fff; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .btn-pdf.gerando svg { animation:gira 1s linear infinite; }
+  @keyframes gira { to { transform:rotate(360deg); } }
+  .aviso-pdf { position:fixed; right:80px; bottom:26px; z-index:11; font:600 14px "Inter"; color:#fff; background:rgba(12,88,104,.95); padding:8px 14px; border-radius:999px; opacity:0; transition:opacity .3s; pointer-events:none; }
+  .aviso-pdf.on { opacity:1; }
+
+  /* ---------- exportação em PDF: tudo parado e visível ---------- */
+  .exportando *, .exportando *::before { transition:none !important; animation:none !important; }
+  .exportando .an { opacity:1 !important; transform:none !important; }
+  .exportando .palco { overflow:visible; }
+
+  /* =========================================================
+     CELULAR / TELA ESTREITA: slides em coluna, com rolagem
+     ========================================================= */
+  body.mobile .deck { position:absolute; inset:0; left:0; top:0; width:100%; height:100%; transform:none !important; }
+  body.mobile .slide { padding:28px 18px 96px; gap:16px; overflow-y:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start; }
+  body.mobile .capa { justify-content:center; }
+  body.mobile .eyebrow { font-size:12px; letter-spacing:2.5px; }
+  body.mobile h1 { font-size:40px; }
+  body.mobile h2 { font-size:28px; }
+  body.mobile .lead { font-size:17px; }
+  body.mobile .texto { font-size:15px; }
+  body.mobile .filete { width:60px; height:4px; }
+  body.mobile .capa .logo { width:170px; }
+  body.mobile .capa .rodape { font-size:14px; }
+  body.mobile .bolhas span { transform:scale(.5); }
+  body.mobile .cartoes, body.mobile .cartoes.tres { grid-template-columns:1fr; gap:12px; }
+  body.mobile .cartao { padding:18px; border-radius:16px; gap:8px; }
+  body.mobile .cartao .num { font-size:32px; }
+  body.mobile .cartao .tit { font-size:18px; }
+  body.mobile .cartao .texto { font-size:14px; }
+  body.mobile .ok { width:34px; height:34px; }
+  body.mobile .ok svg { width:18px; height:18px; }
+  body.mobile .tela { flex:none; border-radius:16px; }
+  body.mobile .tela-barra { font-size:12px; padding:8px 14px; }
+  body.mobile .tela-cab { padding:10px 14px; gap:12px; flex-wrap:wrap; }
+  body.mobile .tela-cab .logo-txt { font-size:15px; }
+  body.mobile .tela-cab .site { font-size:15px; }
+  body.mobile .tela-cab .site small { font-size:11px; }
+  body.mobile .tela-corpo { padding:16px 14px; gap:12px; }
+  body.mobile .tela-titulo { font-size:20px; }
+  body.mobile .trilha { font-size:13px; }
+  body.mobile .grade, body.mobile .grade.quatro { grid-template-columns:1fr; gap:14px; max-width:none !important; }
+  body.mobile .grade.quatro { grid-template-columns:1fr 1fr; gap:12px 10px; }
+  body.mobile .b3d { padding:12px 14px; gap:12px; border-radius:14px; box-shadow:inset 0 1px 0 rgba(255,255,255,.35), 0 5px 0 #063a45, 0 10px 16px rgba(0,0,0,.5); }
+  body.mobile .chip { width:42px; height:42px; border-radius:11px; }
+  body.mobile .chip svg { width:22px; height:22px; }
+  body.mobile .rot { font-size:15px; }
+  body.mobile .sub { font-size:12px; }
+  body.mobile .b3d.peq { padding:9px 10px; gap:8px; border-radius:11px; }
+  body.mobile .b3d.peq .chip { width:30px; height:30px; border-radius:8px; }
+  body.mobile .b3d.peq .chip svg { width:16px; height:16px; }
+  body.mobile .b3d.peq .rot { font-size:11.5px; }
+  body.mobile .b3d.peq .sub { font-size:10px; }
+  body.mobile .lista-topo { flex-wrap:wrap; gap:8px; }
+  body.mobile .busca { flex-basis:100%; font-size:13px; padding:10px 12px; }
+  body.mobile .busca svg { width:18px; height:18px; }
+  body.mobile .filtro { font-size:12px; padding:6px 12px; }
+  body.mobile .lin { grid-template-columns:34px 1fr auto; gap:10px; padding:9px 12px; font-size:13px; }
+  body.mobile .lin .ic { width:34px; height:34px; border-radius:9px; }
+  body.mobile .lin .ic svg { width:18px; height:18px; }
+  body.mobile .lin > :nth-child(4) { display:none; }
+  body.mobile .lin .tag { display:none; }
+  body.mobile .lin.cab > :nth-child(3) { display:none; }
+  body.mobile .lin.cab { font-size:11px; }
+  body.mobile .comp { grid-template-columns:1fr 1fr; }
+  body.mobile .comp > div { font-size:13px; padding:10px 12px; }
+  body.mobile .comp .p { grid-column:1 / -1; background:#141b20; color:var(--teal-claro); padding:8px 12px; }
+  body.mobile .comp .h:first-child { display:none; }
+  body.mobile .passo { flex-wrap:wrap; gap:12px; padding:14px; border-radius:14px; }
+  body.mobile .passo .n { width:38px; height:38px; font-size:17px; }
+  body.mobile .passo .t { width:auto; flex:1; font-size:16px; }
+  body.mobile .passo .d { flex-basis:100%; font-size:13px; }
+  body.mobile .nav { bottom:14px; gap:8px; }
+  body.mobile .nav button { width:40px; height:40px; }
+  body.mobile .pontos i { width:7px; height:7px; }
+  body.mobile .pontos i.on { width:20px; }
+  body.mobile .contador { display:none; }
+  body.mobile .btn-pdf { width:44px; height:44px; right:12px; bottom:12px; }
+  body.mobile .aviso-pdf { right:64px; bottom:20px; font-size:12px; }
   .barra-prog { position:fixed; left:0; top:0; height:4px; background:linear-gradient(90deg,var(--teal-claro),var(--laranja)); z-index:10; transition:width .5s; }
 </style>
 </head>
@@ -288,6 +374,10 @@
   <button id="prox" aria-label="Próximo slide">›</button>
 </nav>
 <div class="contador" id="contador"></div>
+<button class="btn-pdf" id="btnPdf" type="button" aria-label="Baixar a apresentação em PDF" title="Baixar em PDF">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+</button>
+<div class="aviso-pdf" id="avisoPdf" role="status" aria-live="polite"></div>
 
 <script>
 // ---------- ícones ----------
@@ -355,10 +445,65 @@ let x0 = null;
 addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
 addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) ir(atual + (dx < 0 ? 1 : -1)); x0 = null; });
 
-// ---------- escala do palco 1920x1080 ----------
+// ---------- escala do palco 1920x1080 (computador) ou modo celular ----------
 const deck = document.getElementById('deck');
-function escala() { const s = Math.min(innerWidth / 1920, innerHeight / 1080); deck.style.transform = `translate(-50%,-50%) scale(${s})`; }
+const ehMobile = () => innerWidth < 820 || (innerWidth < 1100 && innerHeight > innerWidth);
+function escala() {
+  document.body.classList.toggle('mobile', ehMobile());
+  if (ehMobile()) { deck.style.transform = ''; return; }
+  const s = Math.min(innerWidth / 1920, innerHeight / 1080);
+  deck.style.transform = `translate(-50%,-50%) scale(${s})`;
+}
 addEventListener('resize', escala); escala();
+
+// ---------- baixar em PDF ----------
+const btnPdf = document.getElementById('btnPdf');
+const aviso = document.getElementById('avisoPdf');
+function mostrarAviso(t) { aviso.textContent = t; aviso.classList.toggle('on', !!t); }
+function carregar(src) {
+  return new Promise((ok, erro) => {
+    if (document.querySelector(`script[src="${src}"]`)) return ok();
+    const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = erro; document.head.appendChild(s);
+  });
+}
+btnPdf.addEventListener('click', async () => {
+  if (btnPdf.classList.contains('gerando')) return;
+  btnPdf.classList.add('gerando');
+  const voltar = atual, eraMobile = document.body.classList.contains('mobile'), transf = deck.style.transform;
+  try {
+    mostrarAviso('Gerando PDF…');
+    await carregar('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
+    await carregar('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+    await document.fonts.ready;
+    // monta cada slide no tamanho de apresentação (1920x1080), parado e visível
+    document.body.classList.remove('mobile');
+    document.body.classList.add('exportando');
+    deck.style.transform = 'none';
+    deck.style.left = '0'; deck.style.top = '0';
+    const pdf = new window.jspdf.jsPDF({ orientation: 'landscape', unit: 'px', format: [1920, 1080], compress: true });
+    for (let i = 0; i < slides.length; i++) {
+      mostrarAviso(`Gerando PDF… ${i + 1} de ${slides.length}`);
+      slides.forEach((s, j) => s.classList.toggle('ativo', j === i));
+      await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+      const cor = getComputedStyle(slides[i]).backgroundColor;
+      const canvas = await html2canvas(slides[i], { width: 1920, height: 1080, windowWidth: 1920, windowHeight: 1080, scale: 1, backgroundColor: cor, useCORS: true, logging: false });
+      if (i > 0) pdf.addPage([1920, 1080], 'landscape');
+      pdf.addImage(canvas.toDataURL('image/jpeg', 0.92), 'JPEG', 0, 0, 1920, 1080);
+    }
+    pdf.save('Novo-layout-SharePoint-Associacao-Volvo.pdf');
+    mostrarAviso('PDF baixado ✓');
+  } catch (e) {
+    console.error(e);
+    mostrarAviso('Não foi possível gerar o PDF');
+  } finally {
+    document.body.classList.remove('exportando');
+    deck.style.left = ''; deck.style.top = ''; deck.style.transform = transf;
+    if (eraMobile) document.body.classList.add('mobile');
+    escala(); ir(voltar);
+    btnPdf.classList.remove('gerando');
+    setTimeout(() => mostrarAviso(''), 2500);
+  }
+});
 
 ir(Math.max(0, (parseInt(location.hash.slice(1), 10) || 1) - 1));
 addEventListener('hashchange', () => { const n = (parseInt(location.hash.slice(1), 10) || 1) - 1; if (n !== atual) ir(n); });
