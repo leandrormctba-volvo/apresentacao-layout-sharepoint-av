@@ -129,6 +129,9 @@
   .passo .d { font-size:25px; color:var(--soft); }
   .passo.decide { background:#2d1a12; border-color:var(--laranja); }
   .passo.decide .n { background:var(--laranja); }
+  .abrir-previa { text-decoration:none; align-self:flex-start; margin-top:6px; }
+  .exportando .abrir-previa { display:none; }
+  body.mobile .abrir-previa { align-self:stretch; }
 
   /* ---------- navegação ---------- */
   .nav { position:fixed; left:0; right:0; bottom:18px; display:flex; justify-content:center; align-items:center; gap:14px; z-index:10; }
@@ -364,6 +367,7 @@
     <div class="passo an esq" style="--i:5"><div class="n">4</div><p class="t">Esconder o menu lateral</p><p class="d">Ele não é apagado: volta a aparecer com um clique.</p></div>
     <div class="passo an esq" style="--i:6"><div class="n">5</div><p class="t">Publicar e revisar juntos</p><p class="d">Sempre com uma prévia aprovada antes de mudar o site.</p></div>
   </div>
+  <a class="b3d an abrir-previa" style="--i:7" href="previa/" target="_blank" rel="noopener"><div class="chip"><svg class="i" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></div><div><p class="rot">ABRIR A PRÉVIA NAVEGÁVEL</p><p class="sub">Página inicial do Clube, com a abertura animada e os botões clicáveis</p></div><span class="seta">›</span></a>
 </section>
 
 </div></div>

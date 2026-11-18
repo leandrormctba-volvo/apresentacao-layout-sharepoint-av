@@ -11,6 +11,11 @@ Apresentação animada (9 slides) da proposta de novo layout do SharePoint da As
 - **Baixar em PDF:** botão redondo com a seta, no canto inferior direito. Gera um PDF com os 9 slides em paisagem.
 - Para abrir num slide específico, use `#número` no fim do link (ex.: `…/#5`).
 
+## Prévia navegável
+🔗 https://leandrormctba-volvo.github.io/apresentacao-layout-sharepoint-av/previa/
+
+Simula a nova página inicial do SharePoint do **Clube**: foto do Centro de Eventos ao fundo, abertura animada com **CLUBE**, cartões altos em azul-petróleo para cada item do menu, e navegação clicável por Documentos (pastas e subpastas), Logos e KPIs e Metas. Também é aberta pelo último slide da apresentação.
+
 ## Conteúdo
 1. Capa
 2. O que já está no ar
