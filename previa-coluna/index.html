@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prévia — Coluna lateral na Home do Clube</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --petroleo:#063a44; --petroleo-2:#0b4652; --teal:#14788c; --teal-claro:#3fa7bd; --ink:#f4f4f2; --soft:#c9dde2; --laranja:#d95926; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:#1b1d1f; color:var(--ink); font-family:"Inter",system-ui,"Segoe UI",sans-serif; }
+
+  /* ---------- simulação do SharePoint ---------- */
+  .aviso { background:var(--laranja); color:#fff; text-align:center; font:700 13px "Inter"; padding:8px 12px; }
+  .sp-barra { background:#000; color:#fff; height:40px; display:flex; align-items:center; gap:18px; padding:0 16px; font:600 14px "Segoe UI",sans-serif; }
+  .sp-cab { background:#0b3a44; display:flex; align-items:center; gap:26px; padding:14px 24px; }
+  .sp-cab .logo-txt { font-family:"Montserrat"; font-weight:800; font-size:19px; color:#fff; }
+  .sp-cab h2 { font:700 22px "Segoe UI",sans-serif; color:#fff; }
+  .sp-cmd { background:#1b1d1f; color:#d0d0d0; font:13px "Segoe UI",sans-serif; padding:10px 24px; display:flex; gap:22px; border-bottom:1px solid #2b2d30; }
+  .pagina { max-width:1400px; margin:0 auto; padding:18px 24px 40px; }
+  .titulo-pag { font:700 26px "Segoe UI",sans-serif; margin:8px 0 16px; }
+
+  /* ---------- seção: arte + coluna lateral ---------- */
+  .secao { display:grid; grid-template-columns:minmax(0,2fr) minmax(300px,1fr); gap:18px; background:var(--petroleo); padding:18px; border-radius:6px; }
+  .arte { border:0; width:100%; height:1000px; border-radius:4px; background:#062f38; }
+
+  .coluna { display:flex; flex-direction:column; gap:16px; }
+  .bloco { background:linear-gradient(180deg,var(--petroleo-2),#073640); border:1px solid rgba(255,255,255,.10); border-radius:14px; padding:16px 16px 18px;
+    box-shadow:0 10px 24px rgba(0,0,0,.35); }
+  .bloco h3 { font:800 13px "Montserrat"; letter-spacing:2px; color:var(--teal-claro); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .bloco h3 svg { width:18px; height:18px; fill:none; stroke:var(--teal-claro); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+  /* próximos eventos */
+  .evento { display:flex; gap:12px; align-items:center; padding:10px 0; border-top:1px solid rgba(255,255,255,.08); }
+  .evento:first-of-type { border-top:0; padding-top:2px; }
+  .data { flex:none; width:52px; height:56px; border-radius:11px; text-align:center; color:#fff;
+    background:linear-gradient(180deg,#1b93ab,#14788c 45%,#0c5868); box-shadow:inset 0 1px 0 rgba(255,255,255,.35), 0 4px 0 #063a45;
+    display:flex; flex-direction:column; justify-content:center; }
+  .data b { font:900 21px/1 "Montserrat"; }
+  .data span { font:700 10px "Montserrat"; letter-spacing:1px; margin-top:3px; }
+  .evento .nome { font:700 13.5px "Montserrat"; line-height:1.3; }
+  .evento .quando { font-size:11.5px; color:var(--soft); margin-top:3px; }
+  .ver-todos { display:inline-block; margin-top:10px; font:700 12px "Montserrat"; color:var(--teal-claro); text-decoration:none; letter-spacing:.5px; }
+
+  /* contagem regressiva */
+  .contagem .alvo { font:800 16px "Montserrat"; margin-bottom:12px; }
+  .contagem .alvo small { display:block; font:500 12px "Inter"; color:var(--soft); margin-top:3px; }
+  .numeros { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+  .numeros div { background:rgba(0,0,0,.22); border-radius:10px; padding:10px 4px; text-align:center; }
+  .numeros b { display:block; font:900 24px/1 "Montserrat"; color:#fff; }
+  .numeros span { display:block; font:600 10px "Inter"; color:var(--soft); margin-top:5px; letter-spacing:.5px; }
+
+  /* foto do mês */
+  .foto { height:170px; border-radius:10px; background:url('centro-de-eventos.jpg') 35% 70%/cover; position:relative; overflow:hidden; }
+  .foto::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(4,30,36,.85), transparent 55%); }
+  .foto p { position:absolute; left:12px; right:12px; bottom:10px; z-index:1; font:700 13px "Montserrat"; }
+  .foto p small { display:block; font:500 11px "Inter"; color:var(--soft); margin-top:2px; }
+
+  /* números do clube */
+  .kpis { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .kpi { background:rgba(0,0,0,.22); border-radius:10px; padding:12px; }
+  .kpi b { display:block; font:900 24px/1 "Montserrat"; }
+  .kpi span { display:block; font-size:11px; color:var(--soft); margin-top:5px; }
+
+  .rotulo { position:absolute; }
+  .exemplo { font:600 10px "Inter"; color:#f3c4a8; letter-spacing:.5px; margin-left:auto; }
+
+  @media (max-width:980px) { .secao { grid-template-columns:1fr; } .arte { height:880px; } }
+</style>
+</head>
+<body>
+  <div class="aviso">PRÉVIA — nada foi alterado no SharePoint. A arte à esquerda é a página real do Clube.</div>
+  <div class="sp-barra">VIOLIN &nbsp; SharePoint</div>
+  <div class="sp-cab"><span class="logo-txt">Associação Volvo</span><h2>Clube</h2></div>
+  <div class="sp-cmd"><span>+ New</span><span>Page details</span><span>Analytics</span></div>
+
+  <div class="pagina">
+    <h1 class="titulo-pag">Início</h1>
+
+    <div class="secao">
+      <!-- arte atual (a mesma página que está no ar) -->
+      <iframe class="arte" src="https://leandrormctba-volvo.github.io/kpis-metas-av/clube/" title="Página inicial do Clube"></iframe>
+
+      <!-- coluna lateral nova -->
+      <aside class="coluna">
+        <section class="bloco">
+          <h3><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>PRÓXIMOS EVENTOS</h3>
+          <div id="eventos"></div>
+          <a class="ver-todos" href="#">Ver calendário completo ›</a>
+        </section>
+
+        <section class="bloco contagem">
+          <h3><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>CONTAGEM REGRESSIVA</h3>
+          <p class="alvo">FESTA DOS CAMPEÕES<small>Sábado, 28 de novembro</small></p>
+          <div class="numeros" id="contagem">
+            <div><b id="cd-d">0</b><span>DIAS</span></div>
+            <div><b id="cd-h">0</b><span>HORAS</span></div>
+            <div><b id="cd-m">0</b><span>MIN</span></div>
+            <div><b id="cd-s">0</b><span>SEG</span></div>
+          </div>
+        </section>
+
+        <section class="bloco">
+          <h3><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>FOTO DO MÊS <span class="exemplo">EXEMPLO</span></h3>
+          <div class="foto"><p>Centro de Eventos<small>Associação Volvo · 2026</small></p></div>
+        </section>
+
+        <section class="bloco">
+          <h3><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>NÚMEROS DO CLUBE</h3>
+          <div class="kpis">
+            <div class="kpi"><b>71</b><span>eventos no calendário</span></div>
+            <div class="kpi"><b>6</b><span>pesquisas de satisfação</span></div>
+            <div class="kpi"><b>821</b><span>respostas nas pesquisas</span></div>
+            <div class="kpi"><b>9,55</b><span>nota média geral</span></div>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+<script>
+// Próximos eventos lidos da lista CALENDÁRIO ANUAL DE EVENTOS (no site real, a web part Eventos atualiza sozinha)
+const EVENTOS = [
+  ['CORRIDA AMIGOS DO HC', '2026-11-22'],
+  ['FESTA DOS CAMPEÕES', '2026-11-28'],
+  ['CIRCUITO DAS ESTAÇÕES - VERÃO', '2026-11-29']
+];
+const MESES = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
+const DIAS = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
+document.getElementById('eventos').innerHTML = EVENTOS.map(([nome, iso]) => {
+  const d = new Date(iso + 'T12:00:00');
+  return `<div class="evento"><div class="data"><b>${d.getDate()}</b><span>${MESES[d.getMonth()]}</span></div>
+          <div><p class="nome">${nome}</p><p class="quando">${DIAS[d.getDay()]}</p></div></div>`;
+}).join('');
+
+// Contagem regressiva até a Festa dos Campeões
+const alvo = new Date('2026-11-28T19:00:00');
+function tic() {
+  let s = Math.max(0, Math.floor((alvo - new Date()) / 1000));
+  const d = Math.floor(s / 86400); s -= d * 86400;
+  const h = Math.floor(s / 3600); s -= h * 3600;
+  const m = Math.floor(s / 60); s -= m * 60;
+  document.getElementById('cd-d').textContent = d;
+  document.getElementById('cd-h').textContent = String(h).padStart(2, '0');
+  document.getElementById('cd-m').textContent = String(m).padStart(2, '0');
+  document.getElementById('cd-s').textContent = String(s).padStart(2, '0');
+}
+tic(); setInterval(tic, 1000);
+</script>
+</body>
+</html>
